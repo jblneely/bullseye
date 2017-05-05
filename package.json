@@ -1,0 +1,31 @@
+{
+  "name": "u2-project-goal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.4.0",
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "chart.js": "^2.5.0",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-ejs-layouts": "^2.3.0",
+    "express-session": "^1.15.2",
+    "moment": "^2.18.1",
+    "mysql": "^2.13.0",
+    "passport-facebook": "^2.1.1",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

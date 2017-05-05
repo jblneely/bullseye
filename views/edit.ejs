@@ -1,0 +1,23 @@
+<div class="white-text card-panel blue darken-4">
+<h1>Edit</h1>
+</div>
+
+<form action="/profile/<%= aims.id %>" method="post" class="edit-form" role="form">
+<div class="card-panel red accent-4">
+  <div class="form-group">
+    <label for="name">AIM</label>
+    <input type="text" class="form-control" id="name" placeholder="Objective" name="aim" value="<%= aims.objective %>">
+  </div>
+  </div>
+  <% aims.fires.forEach(function(fire) { %>
+  <div class="form-group">
+    <label for="name">FIRE</label>
+    <input type="text" class="form-control" id="name" placeholder="Key Result" name="<%=fire.id%>" value="<%=fire.keyResult%>">
+  </div>
+  <%})%>
+
+
+  <button type="submit" class="btn blue darken-4">Submit</button>
+</form>
+
+<a href="/profile">&larr; Return to Profile</a>

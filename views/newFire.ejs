@@ -1,0 +1,22 @@
+
+
+  <div class="white-text card-panel blue darken-4">
+<img src="/img/signt.png" alt="sight">
+<h3>NEW FIRE</h3>
+</div>
+
+<form action="/profile/fire/new" method="POST" role="form">
+<div class=card-panel red accent-4">
+  <div class="form-group">
+    <label for="name">Fire</label>
+     <input type="text" class="form-control" name="keyResult" id="name" placeholder="UNAMBIGUOUS KEY RESULT" required>
+     <input type="number" class="form-control" id="score" name="goal" placeholder="AMOUNT PER QUARTER">
+     <input type="hidden" name="aimId" value="<%= aimId %>">
+  </div>
+  
+  </div>
+
+  <button type="submit" class="btn blue darken-4">ADD TARGET TO PROFILE</button>
+</form>
+
+<a href="/profile">&larr; Back</a>

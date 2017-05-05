@@ -1,0 +1,32 @@
+
+
+
+
+<div class="card-panel white-text blue darken-4">
+<h2>TARGETS</h2>
+<h5>OBJECTIVES | KEY RESULTS </h5>
+<a href="/profile/new" class="btn btn-success pull-right red accent-4">CREATE NEW AIM</a>
+
+</div>
+
+
+
+
+<a href="/">&larr; Home</a>
+
+<div class="row">
+<div class="col s12 m6 l3">
+<% aims.forEach(function(aim) { %>
+	<div class="well center-align card-panel blue darken-4">
+	<img src="img/doughnut.png" alt="chart">
+	  <h2><a class="white-text" href="/profile/<%= aim.id %>"><%= aim.objective %></a>
+	    <small><%= aim.objective %></small>
+	  </h2>
+	  <a href="/profile/fire/new/<%= aim.id %>" class="btn pull-right red accent-4">CREATE NEW FIRE FOR THIS AIM</a>
+	  <a href="/profile/<%= aim.id %>/edit" class="btn yellow glyphicon glyphicon-edit"></a>
+	  <a href="/profile/<%= aim.id %>" class="btn red accent-4 glyphicon glyphicon-trash delete-btn"></a>
+	</div>
+	</div>
+	</div>
+	</div>
+<% }); %>

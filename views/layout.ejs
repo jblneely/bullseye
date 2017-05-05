@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BULLSEYE</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+  
+  <div class="container center-align">
+    <% include partials/alerts %>
+    <%- body %>
+    <hr>
+    <a href="/" class="btn btn-default blue darken-4">Home</a>
+    <a href="/profile" class="btn btn-info blue darken-4">Profile</a>
+    <% if(!currentUser) { %>
+      <a href="/auth/login" class="btn btn-primary blue darken-4">Login</a>
+      <a href="/auth/signup" class="btn btn-success blue darken-4">Sign up!</a>
+    <% } else { %>
+      <a href="/auth/logout" class="btn btn-danger blue darken-4">Logout, <%= currentUser.getFullName() %></a>
+    <% } %>
+  </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+   <!--  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
