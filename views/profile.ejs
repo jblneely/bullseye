@@ -3,7 +3,7 @@
 
 
 <div class="card-panel white-text blue darken-4">
-<h2>TARGETS</h2>
+<h2><%= currentUser.getFullName() %> <br> TARGETS</h2>
 <h5>OBJECTIVES | KEY RESULTS </h5>
 <a href="/profile/new" class="btn btn-success pull-right red accent-4">CREATE NEW AIM</a>
 
@@ -14,19 +14,36 @@
 
 <a href="/">&larr; Home</a>
 
-<div class="row">
-<div class="col s12 m6 l3">
+
 <% aims.forEach(function(aim) { %>
-	<div class="well center-align card-panel blue darken-4">
+
+
+<div class="well center-align card-panel blue darken-4">
 	<img src="img/doughnut.png" alt="chart">
-	  <h2><a class="white-text" href="/profile/<%= aim.id %>"><%= aim.objective %></a>
-	    <small><%= aim.objective %></small>
-	  </h2>
-	  <a href="/profile/fire/new/<%= aim.id %>" class="btn pull-right red accent-4">CREATE NEW FIRE FOR THIS AIM</a>
-	  <a href="/profile/<%= aim.id %>/edit" class="btn yellow glyphicon glyphicon-edit"></a>
+
+	<div class="card-panel blue darken-3">
+	 <h2 class="blue-text">Aim</h2>
+	  <h2><p class="white-text" href="/profile/<%= aim.id %>"><%= aim.objective %></p></h2>
+	</div>
+	<div class="card-panel blue darken-3">
+	  <h2 class="blue-text">FIRE</h2>
+	  <hr>
+	  <% aim.fires.forEach(function(fire){ %>
+		<h4><p class="white-text"><%= fire.keyResult %></p></h4>
+		<h4><p class="white-text">Goal: <%= fire.goal %></p></h4>
+	  <% }); %>
+	  <hr>
+
+	  <a href="/profile/fire/new/<%= aim.id %>" class="btn blue">CREATE NEW FIRE</a>
+	</div>
+	  <hr>
+	  <a href="/profile/<%= aim.id %>/edit" class="btn blue lighten-2 glyphicon glyphicon-edit"></a>
 	  <a href="/profile/<%= aim.id %>" class="btn red accent-4 glyphicon glyphicon-trash delete-btn"></a>
+
+
+
 	</div>
-	</div>
-	</div>
-	</div>
+
+
+	
 <% }); %>

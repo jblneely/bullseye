@@ -15,7 +15,8 @@ var isLoggedIn = require('../middleware/isLoggedIn');
 //GET /profile/index - all aims
 router.get('/', function(req, res) {
     db.aim.findAll({
-        where: { userId: req.user.id }
+        where: { userId: req.user.id },
+        include: [db.fire]
     }).then(function(aims) {
         res.render('profile', { aims: aims });
     }).catch(function(err) {
@@ -64,6 +65,9 @@ router.post('/fire/new', function(req, res) {
         });
 });
 //findall fires where aimId is the aim id you are looking for and post them to /profile
+
+
+
 
 router.get('/:id', function(req, res) {
     db.user.find({
