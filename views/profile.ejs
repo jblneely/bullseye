@@ -19,7 +19,10 @@
 
 
 <div class="well center-align card-panel blue darken-4">
-	<img src="img/doughnut.png" alt="chart">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+	<script> var dataset= <%= myDataArray %></script>
+	<canvas id="myChart" width="400" height="400"></canvas>
+	<script src="js/chart.js"> </script>
 
 	<div class="card-panel blue darken-3">
 	 <h2 class="blue-text">Aim</h2>
@@ -31,7 +34,19 @@
 	  <% aim.fires.forEach(function(fire){ %>
 		<h4><p class="white-text"><%= fire.keyResult %></p></h4>
 		<h4><p class="white-text">Goal: <%= fire.goal %></p></h4>
+		<h4><p class="white-text">Current: </p></h4>
+
+		<form action="/profile/firecurrent" method="POST" role="form">
+			<input type="text" name="fireId" value="<%= fire.id%>" class="hide">
+			<input type="number" class="form-control white-text center-align" id="score" name="current" value="<%= fire.current %>">
+			<input type="submit">
+		</form>
+
 	  <% }); %>
+
+	  
+
+ 
 	  <hr>
 
 	  <a href="/profile/fire/new/<%= aim.id %>" class="btn blue">CREATE NEW FIRE</a>

@@ -4,8 +4,8 @@ module.exports = function(sequelize, DataTypes) {
         aimId: DataTypes.INTEGER,
         keyResult: DataTypes.TEXT,
         score: DataTypes.INTEGER,
-        goal: DataTypes.INTEGER
-
+        goal: DataTypes.INTEGER,
+        current: DataTypes.INTEGER
     }, {
         classMethods: {
             associate: function(models) {

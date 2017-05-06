@@ -18,7 +18,10 @@ router.get('/', function(req, res) {
         where: { userId: req.user.id },
         include: [db.fire]
     }).then(function(aims) {
-        res.render('profile', { aims: aims });
+        res.render('profile', {
+            aims: aims,
+            myDataArray: [12, 19, 3, 5, 2, 3 /* fire.goal / fire.current */ ]
+        });
     }).catch(function(err) {
         res.status(500).render('error');
     });
@@ -64,7 +67,24 @@ router.post('/fire/new', function(req, res) {
             });
         });
 });
-//findall fires where aimId is the aim id you are looking for and post them to /profile
+
+router.post('/firecurrent', function(req, res) {
+
+        console.log(req.body);
+        db.fire.update({
+            current: req.body.current
+        }, {
+            where: {
+                id: req.body.fireId
+            }
+        }).then(function(fires) {
+            console.log(fires)
+            res.redirect('/profile');
+        }).catch(function(err) {
+            console.log(err)
+        })
+    })
+    //findall fires where aimId is the aim id you are looking for and post them to /profile
 
 
 
