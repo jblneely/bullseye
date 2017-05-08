@@ -193,29 +193,6 @@ router.post('/', isLoggedIn, function(req, res) {
         //Get name/keyresult arrays into an array of objs
         var combined = [];
 
-        // for (var i = 0; i < req.body.objective.length; i++) {
-        //     combined.push({ objective: req.body.objective[0], keyResult: req.body.keyResult[0] });
-        // }
-
-        // console.log("COMBINED:", combined);
-
-        // async.forEachSeries(combined, function(c, callback) {
-        //     //function that runs for each thing
-        //     console.log("THING:", c);
-        //     db.fire.create({
-        //         'keyResult': c.name,
-        //         'score': parseInt(c.keyResult),
-        //         'aimId': aim.id
-        //     }).then(function(newFire) {
-        //         console.log("SUCCESS:");
-        //         callback();
-        //     });
-        // }, function() {
-        //     console.log("ALL DONE:");
-        //     //Runs when everything is done
-        //     res.redirect("/profile");
-        // });
-
         res.redirect('/profile');
 
     }).catch(function(err) {

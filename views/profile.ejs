@@ -2,63 +2,49 @@
 
 
 
-<div class="card-panel white-text blue darken-4">
-<h2><%= currentUser.getFullName() %> <br> TARGETS</h2>
-<h5>OBJECTIVES | KEY RESULTS </h5>
-<a href="/profile/new" class="btn btn-success pull-right red accent-4">CREATE NEW AIM</a>
 
-</div>
+<h3 class="black-text"><%= currentUser.getFullName() %> </h3>
+
+<img src="/img/yelredblu.png" alt="target">
 
 
-
-
-<a href="/">&larr; Home</a>
+<h5 class="black-text">ADD TARGET</h5>
+<a href="/profile/new" class="btn-floating btn-small waves-effect waves-light yellow accent-4"><i class="material-icons">add</i></a>
 
 
 <% aims.forEach(function(aim) { %>
 
 
-<div class="well center-align card-panel blue darken-4">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
-	<script> var dataset= <%= myDataArray %></script>
-	<canvas id="myChart" width="400" height="400"></canvas>
-	<script src="js/chart.js"> </script>
+   <div class="row">
+   <div class="col s12">
+		<div class="card-panel black">
+	
+	  <h4 class="yellow-text" href="/profile/<%= aim.id %>"><%= aim.objective %></h4>
 
-	<div class="card-panel blue darken-3">
-	 <h2 class="blue-text">Aim</h2>
-	  <h2><p class="white-text" href="/profile/<%= aim.id %>"><%= aim.objective %></p></h2>
-	</div>
-	<div class="card-panel blue darken-3">
-	  <h2 class="blue-text">FIRE</h2>
-	  <hr>
+	  <a href="/profile/fire/new/<%= aim.id %>" class="btn-floating btn-small waves-effect waves-light black"><i class="material-icons">add</i></a>
+	
+	 
 	  <% aim.fires.forEach(function(fire){ %>
-		<h4><p class="white-text"><%= fire.keyResult %></p></h4>
-		<h4><p class="white-text">Goal: <%= fire.goal %></p></h4>
-		<h4><p class="white-text">Current: </p></h4>
+		<h5 class="red-text"><%= fire.keyResult %></h5>
 
 		<form action="/profile/firecurrent" method="POST" role="form">
+		
+          	 
+          
+ 			<div class="input-field inline blue-text">
 			<input type="text" name="fireId" value="<%= fire.id%>" class="hide">
-			<input type="number" class="form-control white-text center-align" id="score" name="current" value="<%= fire.current %>">
-			<input type="submit">
+			<input type="number" class="input-field inline" id="score" name="current" value="<%= fire.current %>"> of <%= fire.goal %> complete
+			</div>
+			<button type="submit" class="btn-floating btn-sm waves-effect waves-light black"><i class="material-icons">track_changes</i></button>	
 		</form>
 
 	  <% }); %>
 
-	  
+	 
+	  <a href="/profile/<%= aim.id %>/edit" class="btn black"><i class="material-icons">mode_edit</i></a>
+	  <a href="/profile/<%= aim.id %>" class="btn black glyphicon glyphicon-trash delete-btn"><i class="material-icons">delete</i></a>
 
- 
-	  <hr>
-
-	  <a href="/profile/fire/new/<%= aim.id %>" class="btn blue">CREATE NEW FIRE</a>
+	</div>	
 	</div>
-	  <hr>
-	  <a href="/profile/<%= aim.id %>/edit" class="btn blue lighten-2 glyphicon glyphicon-edit"></a>
-	  <a href="/profile/<%= aim.id %>" class="btn red accent-4 glyphicon glyphicon-trash delete-btn"></a>
-
-
-
-	</div>
-
-
-	
+</div>
 <% }); %>

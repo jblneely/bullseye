@@ -1,29 +1,27 @@
-<div class="card-panel white-text blue darken-4">
+
+
 <h3>LOGIN</h3>
-<h5>DO OR DO NOT, THERE IS NO TRY  - YODA</h5>
+<img src="/img/yelredblu.png" alt="target">
+<h5>DO OR DO NOT, THERE IS NO TRY</h5>
+
+<div class="form-group">
+  <form action="/auth/login" method="POST">
+    <label for="login" class="black-text"><h5>EMAIL</h5></label>
+    <input type="email" class="form-control" id="login" name="email" placeholder="Type your email">
+    <label for="password" class="black-text"><h5>PASSWORD</h5></label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Type your password">
+    <button type="submit" class="btn-floating btn-large waves-effect waves-light blue darken-4"><i class="material-icons">add</i></button>
+  </form>
 </div>
 
-<form action="/auth/login" method="POST">
-<div class="card-panel red accent-4">
-  <div class="form-group">
-    <label for="login">Email</label>
-    <input type="email" class="form-control white-text" id="login" name="email" placeholder="Type your email">
-  </div>
+<h5 class="black-text">ALTERNATIVELY SIGN IN ON FACEBOOK </h5>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Type your password">
-  </div>
-  </div>
-
-  <button type="submit" class="btn btn-primary waves-effect waves-light btn blue darken-4">SUBMIT</button>
-</form>
-
-
-
+<a href="/auth/facebook" class="ftn btn-primary"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
 <hr>
 
-<h4 class="blue-text darken-4">ALTERNATIVELY</h4>
-<a href="/auth/facebook" class="ftn btn-primary">
-  LOG IN WITH FACEBOOK <i class="glyphicon glyphicon-facebook"></i>
-</a>
+
+
+
+
+
+

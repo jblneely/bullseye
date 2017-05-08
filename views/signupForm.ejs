@@ -1,42 +1,33 @@
 
-<div class="card-panel white-text blue darken-4">
 <h3>NEW USER SIGN IN</h3>
+<img src="/img/yelredblu.png" alt="target">
 <h5>GIT 'ER DONE</h5>
-</div>
 
 
-<form action="/auth/signup" method="POST" role="form">
-<div class="card-panel red accent-4">
 
-  <div class="form-group">
+<div class="form-group">
+  <form action="/auth/signup" method="POST" role="form">
     <label for="login">Email</label>
     <input type="email" class="form-control" id="login" name="email" placeholder="Type your email">
-  </div>
-
-  <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Type your password">
-  </div>
-
-  <div class="form-group">
     <label for="firstname">First Name</label>
     <input type="text" class="form-control" id="firstname" name="firstName" placeholder="Your first name">
-  </div>
-
-  <div class="form-group">
     <label for="lastname">Last Name</label>
     <input type="text" class="form-control" id="lastname" name="lastName" placeholder="Your last name">
-  </div>
-  </div>
-
-  <button type="submit" class="btn blue darken-4">Submit</button>
-</form>
+    <button type="submit" class="btn-floating btn-large waves-effect waves-light blue darken-4"><i class="material-icons">add</i></button>
+  </form>
+</div>
 
 <hr>
 
-<h2>Or ...</h2>
-<a href="/auth/facebook" class="ftn btn-primary">
-  Sign up with Facebook <i class="glyphicon glyphicon-facebook"></i>
-</a>
+<h5>ALTERNATIVELY SIGN IN ON FACEBOOK</h5>
+
+<a href="/auth/facebook" class="ftn btn-primary"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
+<hr>
+
+
+
+
 
 

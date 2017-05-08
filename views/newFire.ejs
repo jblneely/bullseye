@@ -1,23 +1,16 @@
 
 
-  <div class="white-text card-panel blue darken-4">
-<img src="/img/signt.png" alt="sight">
-<h3>NEW FIRE</h3>
+<img src="/img/yelredblu.png" alt="target">
+
+<div class="form-group">
+	<form action="/profile/fire/new" method="POST" role="form">
+    	<label for="name" class="black-text"><h3>NEW FIRE</h3></label>
+     	<input type="text" class="form-control" name="keyResult" id="name" placeholder="KEY RESULT" required>
+     	<input type="number" class="form-control" id="score" name="goal" placeholder="AMOUNT PER QUARTER">
+     	<input type="hidden" name="aimId" value="<%= aimId %>">
+  		<button type="submit" class="btn-floating btn-large waves-effect waves-light red accent-4"><i class="material-icons">add</i></button>
+	</form>
 </div>
-
-<form action="/profile/fire/new" method="POST" role="form">
-<div class=card-panel red accent-4">
-  <div class="form-group">
-    <label for="name">Fire</label>
-     <input type="text" class="form-control" name="keyResult" id="name" placeholder="UNAMBIGUOUS KEY RESULT" required>
-     <input type="number" class="form-control" id="score" name="goal" placeholder="AMOUNT PER QUARTER">
-     <input type="hidden" name="aimId" value="<%= aimId %>">
-  </div>
-  
-  </div>
-
-  <button type="submit" class="btn blue darken-4">ADD FIRE TO AIM</button>
-</form>
 
 <a href="/profile">&larr; Back</a>
 

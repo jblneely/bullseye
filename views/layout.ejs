@@ -2,43 +2,45 @@
 <html>
 <head>
   <title>BULLSEYE</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-  <!--Import Google Icon Font-->
+  
+      <link rel="stylesheet" href="./public/css/.css">
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <script src="https://use.fontawesome.com/c3afd9c084.js"></script>
+
      
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-      <!--Let browser know website is optimized for mobile-->
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js" integrity="sha256-jYMHiFJgIHHSIyPp1uwI5iv5dYgQZIxaQ4RwnpEeEDQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js" integrity="sha256-+q+dGCSrVbejd3MDuzJHKsk2eXd4sF5XYEMfPZsOnYE=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js" integrity="sha256-thgNwq1kqppxWOZpF2V/KfgGpLeBWbLMg704XfwYUDQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js" integrity="sha256-GcknncGKzlKm69d+sp+k3A2NyQE+jnu43aBl6rrDN2I=" crossorigin="anonymous"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-  
+
   <div class="container center-align">
     <% include partials/alerts %>
     <%- body %>
-    <hr>
-    <a href="/" class="btn btn-default blue darken-4">Home</a>
-    <a href="/profile" class="btn btn-info blue darken-4">Profile</a>
+    <a href="/" class="btn blue darken-4">Home</a>
+    <a href="/profile" class="btn blue darken-4">Profile</a>
     <% if(!currentUser) { %>
-      <a href="/auth/login" class="btn btn-primary blue darken-4">Login</a>
-      <a href="/auth/signup" class="btn btn-success blue darken-4">Sign up!</a>
+      <a href="/auth/login" class="btn blue darken-4">Login</a>
+      <a href="/auth/signup" class="btn blue darken-4">Sign up!</a>
     <% } else { %>
       <a href="/auth/logout" class="btn btn-danger blue darken-4">Logout, <%= currentUser.getFullName() %></a>
     <% } %>
   </div>
+ 
+ 
   
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript -->
-   <!--  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="//code.jquery.com/jquery.js"></script>   
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-          
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src=""
     <script src="/js/script.js"></script>
 
 </body>
