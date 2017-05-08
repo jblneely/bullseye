@@ -21,9 +21,9 @@ passport.use(new localStrategy({
         where: { email: email }
     }).then(function(user) {
         if (!user || !user.isValidPassword(password)) {
-            cb(null, false); //No user or bad password
+            cb(null, false); //Bad user or password
         } else {
-            cb(null, user); //User is allowed, yay
+            cb(null, user); //User is verified
         }
     }).catch(cb);
 }));
