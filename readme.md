@@ -1,6 +1,6 @@
 My project has 3 models, for "Users", "Aims" (Objectives) and "Fires" (Key Results) which represent the main functional idea for my app.
 
-Uusers must sign up/log in to view their "Profile" page.  Users passwords are hashed and an authorization flow is incorporated.
+Users must sign up/log in to view their "Profile" page.  Users passwords are hashed and an authorization flow is incorporated.
 
 I incorporated the Facebook login API. Due to a migration issue, the FacebookId column does not appear in the heroku model.  I am working to fix this.
 

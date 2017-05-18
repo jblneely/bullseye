@@ -15,3 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     return fire;
 };
+
+
+
+//fishished - unfinished - pass in fire.score/fire.goal from db

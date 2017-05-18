@@ -15,17 +15,20 @@
 <% aims.forEach(function(aim) { %>
 
 
+   <div class="container">
    <div class="row">
-   <div class="col s12">
+		<div class="col s12 m6 l3">
 		<div class="card-panel black">
 	
-	  <h4 class="yellow-text" href="/profile/<%= aim.id %>"><%= aim.objective %></h4>
+	  <p class="yellow-text" href="/profile/<%= aim.id %>"><%= aim.objective %></p>
 
 	  <a href="/profile/fire/new/<%= aim.id %>" class="btn-floating btn-small waves-effect waves-light black"><i class="material-icons">add</i></a>
 	
 	 
 	  <% aim.fires.forEach(function(fire){ %>
-		<h5 class="red-text"><%= fire.keyResult %></h5>
+		<p class="red-text"><%= fire.keyResult %></p>
+
+		<canvas id="myChart<%= fire.id %>" width="200" height="200"></canvas>
 
 		<form action="/profile/firecurrent" method="POST" role="form">
 		
@@ -33,6 +36,8 @@
  			<div class="input-field inline blue-text">
 			<input type="text" name="fireId" value="<%= fire.id%>" class="hide">
 			<input type="number" class="input-field inline" id="score" name="current" value="<%= fire.current %>"> of <%= fire.goal %> complete
+			<input type="hidden" name="goal" value="<%= fire.goal %>">
+			<input type="number" class="input-field inline" id="score" name="current" value="<%= Math.floor((fire.current / fire.goal) * 100) %>">
 			</div>
 			<button type="submit" class="btn-floating btn-sm waves-effect waves-light black"><i class="material-icons">track_changes</i></button>	
 		</form>
@@ -42,8 +47,15 @@
 	 
 	  <a href="/profile/<%= aim.id %>/edit" class="btn black"><i class="material-icons">mode_edit</i></a>
 	  <a href="/profile/<%= aim.id %>" class="btn black glyphicon glyphicon-trash delete-btn"><i class="material-icons">delete</i></a>
-
+	</div>
 	</div>	
 	</div>
 </div>
 <% }); %>
+
+<script>
+var aims = <%- JSON.stringify(aims) %>;
+</script>
+<script src="/js/chart.js"></script>
+
+<!-- //include chart.js script tag// -->

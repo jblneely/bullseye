@@ -69,8 +69,11 @@ router.post('/fire/new', function(req, res) {
 });
 
 router.post('/firecurrent', function(req, res) {
-
         console.log(req.body);
+        if (req.body.current > req.body.goal) {
+            req.flash('error', 'current is greater than goal');
+            res.redirect('/profile');
+        }
         db.fire.update({
             current: req.body.current
         }, {

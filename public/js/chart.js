@@ -1,37 +1,52 @@
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: dataset,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+var ctx;
+
+console.log(aims);
+
+Chart.pluginService.register({
+    beforeDraw: function(chart) {
+        var width = chart.chart.width,
+            height = chart.chart.height,
+            ctx = chart.chart.ctx,
+            type = chart.config.type;
+
+        if (type == 'doughnut') {
+            var percent = Math.round((chart.config.data.datasets[0].data[0] * 100) /
+                (chart.config.data.datasets[0].data[0] +
+                    chart.config.data.datasets[0].data[1]));
+            var oldFill = ctx.fillStyle;
+            var fontSize = ((height - chart.chartArea.top) / 100).toFixed(2);
+
+            ctx.restore();
+            ctx.font = fontSize + "em sans-serif";
+            ctx.textBaseline = "middle"
+
+            var text = percent + "%",
+                textX = Math.round((width - ctx.measureText(text).width) / 2),
+                textY = (height + chart.chartArea.top) / 2;
+
+            ctx.fillStyle = chart.config.data.datasets[0].backgroundColor[0];
+            ctx.fillText(text, textX, textY);
+            ctx.fillStyle = oldFill;
+            ctx.save();
         }
     }
+});
+
+aims.forEach(function(aim) {
+    aim.fires.forEach(function(fire) {
+        ctx = document.getElementById("myChart" + fire.id).getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Current", "Goal"],
+                datasets: [{
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    data: [fire.current, fire.goal - fire.current]
+                }]
+            }
+        });
+    });
 });
